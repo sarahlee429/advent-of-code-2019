@@ -72,24 +72,10 @@ void process_opt_code(std::vector<int> &input)
             i += 2;
             break;
         case JUMPIFT:
-            if (arg1_value != 0)
-            {
-                i = arg2_value;
-            }
-            else
-            {
-                i += 3;
-            }
+            i = arg1_value != 0 ? arg2_value : i + 3;
             break;
         case JUMPIFF:
-            if (arg1_value == 0)
-            {
-                i = arg2_value;
-            }
-            else
-            {
-                i += 3;
-            }
+            i = arg1_value == 0 ? arg2_value : i + 3;
             break;
         case LT:
             input[input[i + 3]] = arg1_value < arg2_value;
