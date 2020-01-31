@@ -10,7 +10,7 @@ Implementation of Compression service that handles
 3) Reset stats Requests
 4) Compress Requests
 
-`ClientSession` contains the request/response processing. Boost `system` was used for the `asio` networking library support to handle tcp operations. `program options` used for command line argument parsing.
+`ClientSession` contains the request/response processing. For requests 1-3, `ClientSession` sends appropriate response. For request 4, `ClientSession` reads specified payload from the header, does error checking for payload validity, then sends appropriate response with compressed payload. Boost `system` was used for the `asio` networking library support to socket operations. `program options` used for command line argument parsing.
 
 
 Class Descriptions
@@ -22,6 +22,13 @@ Class Descriptions
 - `GetstatsResonse` - Handles serialization of get stats response.
 - `CompressResonse` - Handles serialization of compress response.
 
+Assumptions
+------------------
+1) Reset stats message -
+   - Internal stats zeroized after sending response header
+2) Get stats message -
+   - Assumes that request header is included in total bytes received count back
+   - Assumes that response header sent is included in the total bytes sent count sent back
 
 How to run
 ----------
