@@ -19,11 +19,14 @@ Class Descriptions
 - `Server` - Starts service to accept clients
 - `ClientSession` - Handles client requests and processes socket data, updates internal statistics
 - `MsgHeader` - Handles serialization and deserialization of message headers.
-- `Trie.java` - The data structure that holds information for NGrams language model. The Trie implementation has been altered from traditional character Trie to fit the tasks of this project better.
-- `TrieNode.java` - A node class used to construct the Trie.
-- `TrieTest.java` - A JUnit test for testing Trie implementation.
-- `Unigrams.java` - Implementation of unigrams and the related smoothing features. The classes contains `WORD_MARKER` that specifies end of a word. It can be changed by the user.
+- `GetstatsResonse` - Handles serialization of get stats response.
+- `CompressResonse` - Handles serialization of compress response.
+
 
 How to run
 ----------
 
+```
+./build.sh
+./run.sh
+```
